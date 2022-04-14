@@ -1,0 +1,47 @@
+if __name__ == '__main__':
+    student_list = []
+    for i in range(int(input())):
+        name = input()
+        score = float(input())
+        student_list.append((name,score))
+        
+student_list.sort()
+# Now we have a sorted nested list of names and scores
+print("""
+      This is the list we have:
+      """)
+print(student_list)
+
+# Now we create a grade list of all the grades that is sorted
+grade_list = []
+for pairing in student_list:
+    grade_list.append(pairing[1])
+grade_list.sort()
+
+print("""
+      This is the grade list:
+      """)
+print(grade_list)
+
+# Now we find the lowest grade
+second_lowest_grade = grade_list[1]
+
+print("""
+      The second lowest grade here is:
+      """)
+print(second_lowest_grade)
+
+
+result_list = []
+
+for pairing in student_list:
+    if second_lowest_grade in pairing:
+      result_list.append(pairing[0])
+result_list.sort()
+
+for name in result_list:
+  print(name)
+
+
+
+
