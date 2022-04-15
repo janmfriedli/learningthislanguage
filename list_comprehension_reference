@@ -1,0 +1,13 @@
+# given list of fruits, return uppercase the ones that start with letter before "N"
+fruits = ['apple', 'banana', 'orange', 'strawberries', 'melon', 'pear']
+uppercase_fruits = []
+for fruit in fruits:
+    if fruit[0] < 'n':
+        uppercase_fruits.append(fruit.upper())
+print(uppercase_fruits)
+
+
+
+# given list of fruits, return uppercase the ones that start with letter before "N"
+lc_uppercase_fruits = [[fruit.upper() for fruit in fruits if fruit[0] < 'n']]
+print(lc_uppercase_fruits)
