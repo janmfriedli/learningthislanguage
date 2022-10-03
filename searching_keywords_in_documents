@@ -1,0 +1,34 @@
+
+"""
+One function that takes a list of documents (each document is a string) and a keyword. Returns list of the index values into the original list for all documents containing the keyword.
+
+Second function that takes list of documents (each document is a string) and a list of keywords. Returns a dictionary where each key is a keyword, and the value is a list of indices (from doc_list) of the documents containing that 
+>>> doc_list = ["The Learn Python Challenge Casino.", "They bought a car and a casino", "Casinoville"]
+>>> keywords = ['casino', 'they']
+>>> multi_word_search(doc_list, keywords)
+>>> {'casino': [0, 1], 'they': [1]}
+"""
+
+document_list = ["The Learn Python Challenge Casino.", "They bought a car", "Casinoville"]
+superwords = ('car', 'learn')
+
+def word_search(document_list, superword):
+  indices = []
+  for document in document_list:
+    list_of_words = document.split()
+    cleaned_list_of_words = [word.lower().rstrip('.,') for word in list_of_words]
+    if superword.lower() in cleaned_list_of_words:
+      indices.append(document_list.index(document))
+  return indices
+
+
+def multi_word_search(document_list, superwords):
+  keyword_to_indices = {}
+  for keyword in superwords:
+    keyword_to_indices[keyword] = word_search(document_list, keyword)
+  return keyword_to_indices
+
+
+print(multi_word_search(document_list, superwords))
+
+
